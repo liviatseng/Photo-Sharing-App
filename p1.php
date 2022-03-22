@@ -14,13 +14,17 @@
         session_start();
 
         try {
-            $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp", "root", "root");
+            $conn = new PDO("mysql:host=$severname;dbname=$database", "$username", "$password");
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // echo "Connected successfully"; 
         } catch(PDOException $e) {
             echo "Connection Error: " . $e->getMessage();
         }
-
+        // People without their ClearDB installed
+        $servername = "us-cdbr-east-05.cleardb.net";
+        $username = "be4c22fe1bd451";
+        $password = "0128e3d6";
+        $database = "heroku_f4c1f1b843cd581";
  
         $l_email= $_POST["l_email"];
         $l_password = $_POST["l_password"];
